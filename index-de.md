@@ -23,8 +23,6 @@ Diese Registrierung umfasst:
 <div style="align-items: center; vertical-align: middle;">➤ <img style="vertical-align: middle;" src="/img/fingerprint.svg" /> Hochladen des Nachweises über den privaten Signaturschlüssel des Entwicklers</div>  
 <div style="align-items: center; vertical-align: middle;">➤ <img style="vertical-align: middle;" src="/img/receipt.svg" /> Liste aller aktuellen und zukünftigen App-Kennungen</div>
 
----
-
 ## Was das für Ihre Rechte bedeutet
 
 ➤ Sie, **der Verbraucher**, haben Ihr Android-Gerät im Vertrauen auf Googles Versprechen gekauft: eine offene Computerplattform, auf der Sie jede beliebige Software ausführen können. Doch ab dem nächsten Jahr wird Google ohne Ihre Zustimmung ein Betriebssystem-Update einspielen, das dieses Recht dauerhaft blockiert und Sie vollständig von Googles Urteil abhängig macht, welchen Anwendungen Sie künftig „vertrauen dürfen“.

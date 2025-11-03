@@ -9,9 +9,9 @@ contact_header: "Contact"
 contact_email: "Email"
 site_problems_header: "Problèmes"
 site_report_issues: "Signaler un problème sur le site"
-site_disclaimer: "<strong>Disclaimer:</strong> This website is a community-driven noncommercial undertaking. It is operated solely for informational and educational purposes."
-site_privacy: "<strong>Privacy:</strong> This site uses no cookies and performs no user tracking or logging."
-site_copyright: "<strong>Copyright:</strong> None. This work is marked"
+site_disclaimer: "<strong>Avertissement :</strong> Ce site web est une initiative communautaire à but non lucratif. Il est exploité uniquement à des fins d’information et d’éducation."
+site_privacy: "<strong>Confidentialité :</strong> Ce site n’utilise aucun cookie et n’effectue aucun suivi ni enregistrement des utilisateurs."
+site_copyright: "<strong>Droits d'auteur :</strong> Aucun. Cette œuvre est sous licence"
 ---
 
 En août 2025, Google a [annoncé](https://developer.android.com/developer-verification) que, dès l'année suivante,
