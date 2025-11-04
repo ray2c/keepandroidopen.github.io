@@ -39,7 +39,7 @@ Este registro implicará:
 
 ➤ Ustedes, **el Estado**, ceden los derechos de sus ciudadanos y su soberanía digital a una empresa conocida por plegarse a las exigencias extrajudiciales de regímenes autoritarios que pretenden suprimir aplicaciones perfectamente legales que no les gustan. Los programas informáticos esenciales para el funcionamiento de sus empresas y administraciones estarán a merced de los caprichos opacos de una multinacional lejana e irresponsable.
 
-## Comment vous pouvez aider
+## Cómo puedes ayudar
 
 ### Consumidores: pónganse en contacto con las autoridades reguladoras nacionales
 
