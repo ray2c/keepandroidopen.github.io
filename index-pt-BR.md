@@ -93,6 +93,10 @@ As reclamações são especialmente impactantes quando são escritas por um cida
 - Entre em contato com a [KPPU for Competition Complaints](https://eng.kppu.go.id)
 - _Nota: A Indonésia foi selecionada para ser um dos [4 países iniciais](https://www.theregister.com/2025/08/26/android_developer_verification_sideloading/) onde o registro dos desenvolvedores será imposto_
 
+#### Switzerland
+
+- File a report with the [Competition Commission](https://www.weko.admin.ch/weko/en/home/kontakt/kontakt.html)
+
 #### Austrália
 
 - Email: [international@accc.gov.au](mailto:international@accc.gov.au?cc=australia@keepandroidopen.org)

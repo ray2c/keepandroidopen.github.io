@@ -92,6 +92,10 @@ Tüm dünyada düzenleyici kurumlar hakikaten teknoloji sektöründeki tekeller 
 - [KPPU for Competition Complaints](https://eng.kppu.go.id) ile irtibata geçin
 - _Note: Endonezya'nın, geliştirici kaydının mecburi olacağı [ilk 4 ülkeden biri](https://www.theregister.com/2025/08/26/android_developer_verification_sideloading/) olması beklenmektedir_
 
+#### Switzerland
+
+- File a report with the [Competition Commission](https://www.weko.admin.ch/weko/en/home/kontakt/kontakt.html)
+
 #### Avustralya
 - E-posta: [international@accc.gov.au](mailto:international@accc.gov.au?cc=australia@keepandroidopen.org)
 - [Australian Competition and Consumer Commission (ACCC)](https://www.accc.gov.au/about-us/contact-us-or-report-an-issue) kurumuna şikayette bulunun.

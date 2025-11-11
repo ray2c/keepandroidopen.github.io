@@ -93,6 +93,10 @@ Bitten Sie um eine **schriftliche Empfangsbestätigung*- Ihrer Beschwerde und er
 - Kontaktieren Sie die [KPPU für Wettbewerbsbeschwerden](https://eng.kppu.go.id)
 - *Hinweis: Indonesien wird voraussichtlich zu den [ersten vier Ländern](https://www.theregister.com/2025/08/26/android_developer_verification_sideloading/) gehören, in denen die Entwicklerregistrierung obligatorisch wird.*
 
+#### Switzerland
+
+- File a report with the [Competition Commission](https://www.weko.admin.ch/weko/en/home/kontakt/kontakt.html)
+
 #### Australien
 
 - E-Mail: [international@accc.gov.au](mailto:international@accc.gov.au?cc=australia@keepandroidopen.org)

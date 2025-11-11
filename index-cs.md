@@ -92,6 +92,10 @@ Stížnosti jsou zvláště efektivní, když pochází od občanů dané země 
 - Kontaktujte [KPPU for Competition Complaints](https://eng.kppu.go.id)
 - _Poznámka: Indonésie je jednou ze [4 prvních zemí](https://www.theregister.com/2025/08/26/android_developer_verification_sideloading/), kde bude registrace vývojářů zavedena_
 
+#### Switzerland
+
+- File a report with the [Competition Commission](https://www.weko.admin.ch/weko/en/home/kontakt/kontakt.html)
+
 #### Austrálie
 
 - Email: [international@accc.gov.au](mailto:international@accc.gov.au?cc=australia@keepandroidopen.org)

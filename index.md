@@ -92,6 +92,10 @@ Complaints are especially impactful when they are authored by a citizen of that 
 - Contact the [KPPU for Competition Complaints](https://eng.kppu.go.id)
 - _Note: Indonesia is slated to be one of the [initial 4 countries](https://www.theregister.com/2025/08/26/android_developer_verification_sideloading/) where developer registration will be enforced_
 
+#### Switzerland
+
+- File a report with the [Competition Commission](https://www.weko.admin.ch/weko/en/home/kontakt/kontakt.html)
+  
 #### Australia
 
 - Email: [international@accc.gov.au](mailto:international@accc.gov.au?cc=australia@keepandroidopen.org)

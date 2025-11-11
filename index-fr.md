@@ -93,6 +93,10 @@ Les plaintes sont particulièrement efficaces lorsqu'elles émanent d'un citoyen
 - Contactez la [KPPU pour les plaintes relatives à la concurrence](https://eng.kppu.go.id)
 - _Remarque : L’Indonésie devrait faire partie des [4 premiers pays](https://www.theregister.com/2025/08/26/android_developer_verification_sideloading/) où l’enregistrement des développeurs sera obligatoire._
 
+#### Switzerland
+
+- File a report with the [Competition Commission](https://www.weko.admin.ch/weko/en/home/kontakt/kontakt.html)
+
 #### Australie
 
 - Courriel : [international@accc.gov.au](mailto:international@accc.gov.au?cc=australia@keepandroidopen.org)

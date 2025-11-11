@@ -92,6 +92,10 @@ Las quejas son especialmente eficaces cuando proceden de un ciudadano del país 
 - Póngase en contacto con la [KPPU para reclamaciones relacionadas con la competencia](https://eng.kppu.go.id)
 - _Nota: Indonesia debería ser uno de los [primeros cuatro países](https://www.theregister.com/2025/08/26/android_developer_verification_sideloading/) en los que el registro de desarrolladores sea obligatorio._
 
+#### Switzerland
+
+- File a report with the [Competition Commission](https://www.weko.admin.ch/weko/en/home/kontakt/kontakt.html)
+
 #### Australia
 
 - Correo electrónico: [international@accc.gov.au](mailto:international@accc.gov.au?cc=australia@keepandroidopen.org)
