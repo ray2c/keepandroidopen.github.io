@@ -291,4 +291,5 @@ These projects are working to provide much-needed competition in the mobile hard
 
 ### Miscellaneous
 
+- [Android Developer Verification Discourse](https://gist.github.com/agnostic-apollo/b8d8daa24cbdd216687a6bef53d417a6) by Termux developer [agnostic-apollo](https://github.com/agnostic-apollo)
 - [Opposition recommendations](https://docs.google.com/document/d/1axlQkdc-wseda9PL2ZP0fgy3I4DqAVVlK5kJw4ksIwU)
