@@ -171,6 +171,8 @@ If you are an app developer, _**do not sign up**_ for the early access program, 
 
 Discourage fellow app developers and organizations from signing up to the program. Use community forums, social media, and blog posts to spread the message. Include the [FreeDroidWarn library](https://github.com/woheller69/FreeDroidWarn) in your code to inform your app users.
 
+If you are a Google employee or contractor of good conscience and have additional insight about the program, including planned technical implementation details or additional rationales for the program, please reach out to [tips@keepandroidopen.org](mailto:tips@keepandroidopen.org) from a _non-work_ machine and a _non-gmail_ account. Your information will be kept in strict confidence.
+
 ### Everyone: Make your voice heard
 
 - [Install F-Droid](https://f-droid.org) on your Android device(s). The more people that use alternative app marketplaces, the harder it will be to shut them out.
