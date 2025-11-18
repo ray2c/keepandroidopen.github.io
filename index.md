@@ -228,6 +228,7 @@ These projects are working to provide much-needed competition in the mobile hard
 
 ### Editorials and Blogs
 
+- “Your Smartphone, Their Rules: How App Stores Enable Corporate-Government Censorship” - [https://www.aclu.org/news/free-speech/app-store-oligopoly](https://www.aclu.org/news/free-speech/app-store-oligopoly)
 - “Application Gatekeeping: An Ever-Expanding Pathway to Internet Censorship” — [https://www.eff.org/deeplinks/2025/11/application-gatekeeping-ever-expanding-pathway-internet-censorship](https://www.eff.org/deeplinks/2025/11/application-gatekeeping-ever-expanding-pathway-internet-censorship)
 - “What We Talk About When We Talk About Sideloading” — [https://f-droid.org/en/2025/10/28/sideloading.html](https://f-droid.org/en/2025/10/28/sideloading.html) ([Hacker News Thread](https://news.ycombinator.com/item?id=45736479))
 - “F-Droid and Google's Developer Registration Decree” — [https://f-droid.org/en/2025/09/29/google-developer-registration-decree.html](https://f-droid.org/en/2025/09/29/google-developer-registration-decree.html) ([Hacker News Thread](https://news.ycombinator.com/item?id=45409794))
