@@ -6,11 +6,11 @@ permalink: /ko/
 description: "Android가 누구나 애플리케이션을 개발할 수 있는 자유로운 플랫폼으로 남을 수 있도록 지지해주세요."
 
 # localizable sections for the footer text
-contact_header: "연락"
+contact_header: "연락처"
 contact_email: "이메일"
-site_problems_header: "오류"
-site_report_issues: "사이트 오류 제보"
-site_disclaimer: "**면책 사항:** 본 사이트는 커뮤니티 주도 비영리 프로젝트입니다. 정보 제공 및 교육 목적으로만 운영됩니다."
+site_problems_header: "문제 제보"
+site_report_issues: "사이트 문제 제보"
+site_disclaimer: "**면책 조항:** 본 사이트는 커뮤니티 주도의 비영리 프로젝트로, 정보 제공 및 교육 목적으로만 운영됩니다."
 site_privacy: "**개인정보:** 본 사이트는 쿠키 등의 정보 수집 장치, 추적 및 기록 등을 하지 않습니다."
 site_copyright: "**저작권:** 없음. 사이트는 다음 저작권으로 배포됩니다:"
 ---
@@ -45,7 +45,7 @@ site_copyright: "**저작권:** 없음. 사이트는 다음 저작권으로 배�
 
 전 세계 규제 당국은 기술 부문의 독점과 권력 집중화에 대해 진심으로 우려하고 있으며, 영향을 받거나 우려하는 개인들의 의견을 직접 듣고 싶어 합니다. 규제 당국에 직접 연락할 때는 해당 정책이 소비자 및 경쟁에 미칠 것으로 예상되는 피해에 대해 _정중하고 구체적으로_ 설명해야 합니다.
 
-자국민이 공용어로 작성한 문의는 더욱 강력한 영향력을 발휘합니다. 문의에 대한 <i>서면 답변</i>을 요청하시고, 받으신 답변이 있다면 [victory@keepandroidopen.org](mailto:victory@keepandroidopen.org)로 전달해 주세요. 저희가 해당 답변을 강조 표시하고 참조할 수 있도록 하겠습니다.
+자국민이 공용어(한국어)로 작성한 문의는 더욱 강력한 영향력을 발휘합니다. 문의에 대한 <i>서면 답변</i>을 요청하시고, 받으신 답변이 있다면 [victory@keepandroidopen.org](mailto:victory@keepandroidopen.org)로 전달해 주세요. 저희가 해당 답변을 강조 표시하고 참조할 수 있도록 하겠습니다.
 
 #### 대한민국
 
@@ -184,6 +184,7 @@ site_copyright: "**저작권:** 없음. 사이트는 다음 저작권으로 배�
 
 #### 아래 소비자/디지털 권리 기관에 문의해주세요
 
+- [한국소비자원 (KCA)](https://www.kca.go.kr/)
 - [Euroconsumers](https://www.euroconsumers.org/)
 - [Electronic Frontier Foundation](https://www.eff.org/)
 - [Digital Rights Ireland](https://www.digitalrights.ie/)
