@@ -1,5 +1,6 @@
 ---
 import { languages, markdownify } from '../i18n/config';
+import ThemeToggle from '../components/ThemeToggle.astro';
 
 interface Props {
   title: string;
@@ -48,6 +49,7 @@ const languageEntries = Object.entries(languages);
   <meta name="twitter:image" content="https://keepandroidopen.org/img/altered-deal.png">
   <link rel="me" href="https://techhub.social/@keepandroidopen">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+
   <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.colors.min.css"> -->
   <style is:global>
   
@@ -188,6 +190,7 @@ const languageEntries = Object.entries(languages);
 </head>
 <body>
   <header>
+    <ThemeToggle />
     <h1>{title}</h1>
     <div class="lang-menu">
       {languageEntries.map(([_code, { label, path }], i) => (
