@@ -8,14 +8,16 @@ contact_header: "聯絡"
 contact_email: "電子郵件"
 site_problems_header: "問題"
 site_report_issues: "報告網站問題"
-site_disclaimer: "**免責聲明：**本網站乃一個由社群驅動的非商業企劃。其運作純粹以供資訊與教育用途。"
-site_privacy: "**隱私：**本網站並不使用 Cookie，也不作使用者追蹤或記錄。"
-site_copyright: "**版權：**無。此著作乃標記為"
+site_disclaimer: "**免責聲明:** 本網站乃一個由社群驅動的非商業企劃。其運作純粹以供資訊與教育用途。"
+site_privacy: "**隱私:** 本網站並不使用 Cookie，也不作使用者追蹤或記錄。"
+site_copyright: "**版權:** 無。此著作乃標記為"
 
-lockdown_banner: "Android 將會變成一個受限制的平台"
+lockdown_banner: "倒數 Android 即將淪為畫地為牢、桎梏滿盈的封閉平臺"
+open_letter_header: "公開信"
+open_letter_description: "倡導 Android 該當一個自由、開放平臺之公開信。"
 --- 
 
-2025 年八月，Google [宣佈](https://developer.android.com/developer-verification)由明年開始，將不再可能開發應用程式以供 Android 平臺上使用，除非先與 Google 集中註冊。此註冊將涉及：
+2025 年八月，Google [宣佈](https://developer.android.com/developer-verification)由 2026 年九月開始，將不再可能開發應用程式以供 Android 平臺上使用，除非先與 Google 集中註冊。此註冊將涉及：
 
 - 向 Google 繳付費用
 {:.li-list .li-money}
@@ -30,7 +32,7 @@ lockdown_banner: "Android 將會變成一個受限制的平台"
 
 ## 這對您的權利意味甚麼
 
-➤ 汝，曰**消費者**，當初購買您的 Android 裝置，乃相信 Google 之承諾其為開放的運算平臺，且您可在其上執行任何任您選擇的軟體。然而，截至2026年9月，他們將會不徵求同意下推送一則更新至您的作業系統，不可撤銷地封鎖此權利，任由您聽任其判斷您獲批准信任甚麼軟體。
+➤ 汝，曰**消費者**，當初購買您的 Android 裝置，乃相信 Google 之承諾其為開放的運算平臺，且您可在其上執行任何任您選擇的軟體。然而，由 2026 年九月開始，他們將會不徵求同意下推送一則更新至您的作業系統，不可撤銷地封鎖此權利，任由您聽任其判斷您獲批准信任甚麼軟體。
 
 ➤ 汝，曰**創作者**，不再能夠開發某一應用程式並直接與您的親朋好友和社群分享，除非先徵得 Google 的核准。Android 的承諾⸺亦是其一直用來標榜與 iPhone 截然不同的一個行銷優勢⸺一直以來都是說它是「開放」的。然而 Google 明顯自認為他們在 Android 生態系統上不可多得鑄成一把枷鎖，又足以結成一定監管友好挾為俘虜，現有能耐憑一己偏隅之見剛愎自用、仗一面免死金牌橫行無忌，揮破此道原則棄若敝屣。
 
@@ -38,13 +40,13 @@ lockdown_banner: "Android 將會變成一個受限制的平台"
 
 <div class="callout-warning">
 
-### 更新：Google **並未**在開發者驗證上「退讓」 {#clarification}
+### 一語道破：Google 並**未有**在開發者驗證上「退讓」 {#clarification}
 
-與一則含糊的[提及](https://android-developers.googleblog.com/2025/11/android-developer-verification-early.html)所述的可能存在的「進階流程」——該流程或許最終將允許「有經驗的使用者接受安裝未經驗證之軟體的風險」——相反，Google 對該計劃的[描述](https://developer.android.com/developer-verification)仍然明確指出：
+儘管流傳一則[口惠](https://android-developers.googleblog.com/2025/11/android-developer-verification-early.html)，依稀提及可能會有一個「進階流程」，或最終允許「有經驗的使用者接受安裝未經驗證軟體之風險」，Google 就[其計劃之描述](https://developer.android.com/developer-verification)卻是如舊直截了當明言：
 
-> 2026 年 9 月起，所有應用程式都必須由通過驗證的開發人員註冊，才能安裝在 Android 認證裝置上。
+> 2026 年 9 月起，所有應用程式都必須由通過驗證的開發人員註冊，才能安裝在 Android 認證裝置上
 
-在他們提供證據表明可以在沒有過度阻礙的情況下繞過驗證流程之前，我們必須相信其官方頁面上所述的內容：一旦其鎖定措施生效，來自未註冊開發者的**所有**應用程式**都將被封鎖**。
+直至他們展現出證據，闡明將可繞過其驗證過程而不致遭受過份阻力，我們不得不採信他們明明白白寫在其官方網頁上的辭令：一旦其鎖關生效，來自非註冊開發者的**所有**應用程式，俱將**一律被封鎖**。
 
 </div>
 
@@ -54,7 +56,7 @@ lockdown_banner: "Android 將會變成一個受限制的平台"
 
 若您是一位應用程式開發者，敬請 _**不要註冊**_ 搶先體驗計劃、進行身份驗證，又或接受邀請加入 Android 開發人員控制台。請向任何邀請 (有禮貌地) 回應並詳列您的各項關注與異議。
 
-—— _唯有開發者默許順從，他們統佔天下的計謀才得以得逞。_ ——
+⸺ _唯有開發者默許順從，他們統佔天下的計謀才得以得逞。_ ⸺
 
 勸諫應用程式開發者與組織同儕，不要註冊該計劃。善用社群討論區、社群媒體與部落格帖文，將此訊息傳開去。在您的程式碼中包含 [FreeDroidWarn 程式庫](https://github.com/woheller69/FreeDroidWarn)，藉以告知您的應用程式使用者。
 
