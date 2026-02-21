@@ -83,50 +83,90 @@ const languageEntries = Object.entries(languages);
     </div>
   </footer>
   <script>
+    // Set the date we're counting down to
+    const countDownDate = new Date("Sep 1, 2026 00:00:00").getTime();
+
+    const locale = document.documentElement.lang; // navigator.language; // Detects browser language (e.g., 'en-US');
+
+    // Use Intl.RelativeTimeFormat for localized abbreviations
+    // 'narrow' style gives us 'd', 'h', 'm', 's' in most locales
+    const formatter = new Intl.RelativeTimeFormat(locale, { style: 'narrow' });
+
+    const prefix = new Array(4);
+    const suffix = new Array(4);
+
+    function getOffset(unit) {
+      switch (unit) {
+        case 'day':
+          return 0;
+        case 'hour':
+          return 1;
+        case 'minute':
+          return 2;
+        case 'second':
+          return 3;
+      }
+    }
+
+    function extractCommon(p, c, reverse) {
+      let s = 0;
+      let w = 0;
+      let i = reverse ? p.length - 1 : 0;
+      let j = reverse ? c.length - 1 : 0;
+      const pEnd = reverse ? 0 : p.length;
+      const cEnd = reverse ? 0 : c.length;
+      let chr;
+      while ((reverse ? i >= pEnd : i < pEnd) && (reverse ? j >= cEnd : j < cEnd) && (chr = p[reverse ? i-- : i++]) === c[reverse ? j-- : j++]) {
+        w = chr === ' ' ? w + 1 : 0;
+        s++;
+      }
+      return s - w;
+    }
+
+    function cacheFormattingInfo(value, unit) {
+      // FormatToParts lets us extract just the unit identifier
+      const p = formatter.formatToParts(value, unit);
+      if (!p.length) return;
+      const c = formatter.formatToParts(-value, unit);
+
+      const offset = getOffset(unit);
+      if (p[0].type === 'literal') {
+        if (!c.length || c[0].type !== 'literal') {
+          prefix[offset] = p[0].value.length;
+        } else if (!c[0].value.endsWith(p[0].value)) {
+          prefix[offset] = p[0].value.length - extractCommon(p[0].value, c[0].value, true);
+        }
+      }
+      if (p[p.length - 1].type === 'literal') {
+        if (!c.length || c[c.length - 1].type !== 'literal') {
+          suffix[offset] = p[p.length - 1].value.length;
+        } else if (!c[c.length - 1].value.startsWith(p[p.length - 1].value)) {
+          suffix[offset] = p[p.length - 1].value.length - extractCommon(p[p.length - 1].value, c[c.length - 1].value, false);
+        }
+      }
+    }
+
+    cacheFormattingInfo(1, 'day');
+    cacheFormattingInfo(2, 'hour');
+    cacheFormattingInfo(3, 'minute');
+    cacheFormattingInfo(4, 'second');
+
     /**
     * Localizes a duration based on the browser's language settings.
     * @param {number} value - The numerical value (e.g., 5)
     * @param {string} unit - The unit ('day', 'hour', 'minute', 'second')
-    * @param {string} locale - The BCP 47 language tag
     */
-    function getLocalizedUnit(value, unit, locale, trimConjunction) {
-      // Use Intl.RelativeTimeFormat for localized abbreviations
-      // 'narrow' style gives us 'd', 'h', 'm', 's' in most locales
-      
-      const formatter = new Intl.RelativeTimeFormat(locale, { style: 'narrow' });
-      
-      function findCommonObject(arrays) {
-        if (!arrays.length) return null;
-      
-        return arrays.reduce((common, currentArray) => {
-          return common.filter(objA => 
-            // Check if the current array contains an object that matches objA
-            currentArray.some(objB => JSON.stringify(objA) === JSON.stringify(objB))
-          );
-        });
-      }
-      
-      const p1 = formatter.formatToParts(1, 'day');
-      const p2 = formatter.formatToParts(2, 'hour');
-      const p3 = formatter.formatToParts(3, 'minute');
-      const p4 = formatter.formatToParts(4, 'second');
-      var prefixParts = findCommonObject([p1, p2, p3, p4]);
-      var prefix = prefixParts.length == 0 ? "" : prefixParts[0].value;
-
-      // FormatToParts lets us extract just the unit identifier
-      const parts = formatter.formatToParts(value, unit);
-      
-      const segments = parts
-        .filter(p => p.type === "integer" || p.type === "literal" || p.type === "unit")
-        .filter(p => p.value !== prefix)
-        .map(p => p.value)
-        .join("");
-      
-      return `${trimConjunction ? "" : prefix}${segments}`;
+    function getLocalizedUnit(value, unit, trimConjunction, trimSuffix) {
+      const offset = getOffset(unit);
+      const string = formatter.format(value, unit);
+      const p = prefix[offset];
+      const s = suffix[offset];
+      return string.slice(trimConjunction && p || p == 1 && string[0] === '+' ? prefix[offset] : 0, trimSuffix && s ? -suffix[offset] : string.length);
     }
-  
-    // Set the date we're counting down to
-    var countDownDate = new Date("Sep 1, 2026 00:00:00").getTime();
+
+    const remaining = new Array(7);
+    const separator = ' ';
+    var timer = null;
 
     function updateBanner() {
       // Get today's date and time
@@ -141,28 +181,27 @@ const languageEntries = Object.entries(languages);
       var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
       var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-      const locale = document.documentElement.lang; // navigator.language; // Detects browser language (e.g., 'en-US');
-
-      var remaining = [
-        days > 0 ? getLocalizedUnit(days, 'day', locale, false) : '',
-        hours > 0 || days > 0 ? getLocalizedUnit(hours, 'hour', locale, true) : '',
-        minutes > 0 || hours > 0 || days > 0 ? getLocalizedUnit(minutes, 'minute', locale, true) : '',
-        getLocalizedUnit(seconds, 'second', locale, true)
-      ].filter(Boolean).join(' ');
-      remaining = remaining.replace(/^\+\s*/, '');
+      var parts = 0;
+      remaining[0] = days > 0 ? getLocalizedUnit(days, 'day', parts++, true) : null;
+      remaining[1] = parts ? separator : null;
+      remaining[2] = parts || hours > 0 ? getLocalizedUnit(hours, 'hour', parts++, true) : null;
+      remaining[3] = parts ? separator : null;
+      remaining[4] = parts || minutes > 0 ? getLocalizedUnit(minutes, 'minute', parts++, true) : null;
+      remaining[5] = parts ? separator : null;
+      remaining[6] = getLocalizedUnit(seconds, 'second', parts++, false);
 
       // Display the result in the element with id="countdown"
-      document.getElementById("countdown").textContent = remaining;
+      document.getElementById("countdown").textContent = remaining.join('');
 
       // // If the count down is finished, write some text
-      // if (distance < 0) {
-      //   clearInterval(x);
+      if (distance < 0) {
+        clearInterval(timer);
       //   document.getElementById("countdown").innerHTML = "EXPIRED";
-      // }
+      }
     }
     
     // Update the count down every 1 second
-    setInterval(updateBanner, 1000);
+    timer = setInterval(updateBanner, 1000);
     updateBanner();
   </script>
 </Base>
