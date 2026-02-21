@@ -130,12 +130,8 @@ const languageEntries = Object.entries(languages);
       const c = formatter.formatToParts(-value, unit);
 
       const offset = getOffset(unit);
-      if (p[0].type === 'literal') {
-        if (!c.length || c[0].type !== 'literal') {
-          prefix[offset] = p[0].value.length;
-        } else if (!c[0].value.endsWith(p[0].value)) {
-          prefix[offset] = p[0].value.length - extractCommon(p[0].value, c[0].value, true);
-        }
+      if (p[0].type === 'literal' && (!c.length || c[0].type !== 'literal' || !c[0].value.endsWith(p[0].value))) {
+        prefix[offset] = p[0].value.length;
       }
       if (p[p.length - 1].type === 'literal') {
         if (!c.length || c[c.length - 1].type !== 'literal') {
