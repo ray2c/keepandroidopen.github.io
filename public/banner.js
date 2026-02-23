@@ -66,27 +66,79 @@
   var params = getScriptParams();
 
   // ── Determine locale ──────────────────────────────────────────────────
-  function resolveLocale(tag) {
-    if (!tag) return "en";
-    if (messages[tag]) return tag;
-    var lower = tag.toLowerCase();
-    for (var key in messages) {
-      if (key.toLowerCase() === lower) return key;
+  function getBestLocale(desired, available) {
+    var dLen = 0;
+    if (!desired || !(dLen = desired.length) || !available) return null;
+
+    var d = new Array(dLen);
+    var dS = new Array(dLen);
+    var dC = new Array(dLen);
+
+    function matchLang(k, d) {
+      var kLen = k.length;
+      var dLen = d.length;
+      var kChr;
+      var dChr;
+      var kBal;
+      var dBal;
+      for (var i = 0; (kBal = i < kLen && (kChr = k[i]) !== '-') & (dBal = i < dLen && (dChr = d[i]) !== '-'); i++) {
+        if (kChr !== dChr && kChr.toLowerCase() !== dChr.toLowerCase()) return ~i;
+      }
+      return kBal || dBal ? ~i : i;
     }
-    var base = tag.split("-")[0].toLowerCase();
-    if (messages[base]) return base;
-    for (var key2 in messages) {
-      if (key2.toLowerCase().split("-")[0] === base) return key2;
+
+    var b = null;
+    var bW = null;
+    for (var key in available) {
+      var a = null;
+      var s = null;
+      var prio = -1;
+      var l = null;
+      var script = null;
+      for (var i = 0; i < dLen; i++) {
+        var sep = matchLang(key, desired[i]);
+        if (sep < 0) continue;
+        if (!a) try {
+          a = new Intl.Locale(key);
+          s = a.script || a.maximize().script;
+        } catch (e) {}
+        l = d[i];
+        try {
+          script = l ? l.script || dS[i] : (l = d[i] = new Intl.Locale(desired[i])).script || (dS[i] ||= l.maximize().script);
+        } catch (e) {}
+        if (script === s) {
+          prio = i;
+          break;
+        }
+      }
+      if (prio < 0) continue;
+      s = a.script;
+      var c = a.region;
+      var w = prio << 5 | (sep + (s ? s.length + 1 : 0) + (c ? c.length + 1 : 0) != key.length) << 4;
+      if ((s && l.script || c && l.region) && c === l.region) {
+        w |= !s | !c << 1 | !(s === l.script) << 2;
+      } else {
+        w |= 8 | !!c << 2 | !!s << 1;
+        if (c) try {
+          w |= c !== (dC[prio] ||= new Intl.Locale(d[prio].language, { script: script }).maximize().region);
+        } catch (e) {}
+      }
+      if (bW === null || w < bW) {
+        b = key;
+        bW = w;
+      }
     }
-    return "en";
+    return b;
   }
 
-  var locale = resolveLocale(
-    params.lang ||
+  var locales = navigator.languages;
+  var preferred = params.lang ||
     document.documentElement.lang ||
     navigator.language ||
-    navigator.userLanguage
-  );
+    navigator.userLanguage;
+  if (!locales || !locales.length || preferred !== locales[0]) locales = [...preferred.split(',').map(p => p.trim()), ...locales];
+
+  var locale = messages[locales[0]] ? locales[0] : getBestLocale(locales, messages) || 'en';
 
   // ── Size variant ──────────────────────────────────────────────────────
   var size = params.size === "mini" ? "mini" : "normal";
@@ -306,8 +358,8 @@
     var p = pfx[offset];
     var s = sfx[offset];
     return string.slice(
-      trimConjunction && p || (p == 1 && string[0] === "+") ? pfx[offset] : 0,
-      trimSuffix && s ? -sfx[offset] : string.length
+      trimConjunction && p || (p == 1 && string[0] === "+") ? p : 0,
+      trimSuffix && s ? -s : string.length
     );
   }
 
@@ -318,6 +370,11 @@
   function updateBanner() {
     var now = new Date().getTime();
     var distance = countDownDate - now;
+
+    if (distance < 0) {
+      clearInterval(timer);
+      return;
+    }
 
     var days = Math.floor(distance / (1000 * 60 * 60 * 24));
     var hours = Math.floor(
@@ -342,10 +399,6 @@
     remaining[6] = getLocalizedUnit(seconds, "second", parts++, false);
 
     countdownSpan.textContent = remaining.join("");
-
-    if (distance < 0) {
-      clearInterval(timer);
-    }
   }
 
   timer = setInterval(updateBanner, 1000);
