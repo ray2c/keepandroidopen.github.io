@@ -4,6 +4,7 @@ import { remarkHeadingId } from "remark-custom-heading-id";
 import rehypeSlug from 'rehype-slug';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypeExternalLinks from "rehype-external-links";
+import relativeLinks from "astro-relative-links";
 import yaml from '@rollup/plugin-yaml';
 
 export default defineConfig({
@@ -39,4 +40,5 @@ export default defineConfig({
     }]
     ],
   },
+  integrations: [relativeLinks()],
 });
