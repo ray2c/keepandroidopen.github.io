@@ -295,10 +295,10 @@
     }
   }
 
-  cacheFormattingInfo(1, "day");
-  cacheFormattingInfo(2, "hour");
-  cacheFormattingInfo(3, "minute");
-  cacheFormattingInfo(4, "second");
+  cacheFormattingInfo(11, "day");
+  cacheFormattingInfo(22, "hour");
+  cacheFormattingInfo(33, "minute");
+  cacheFormattingInfo(44, "second");
 
   function getLocalizedUnit(value, unit, trimConjunction, trimSuffix) {
     var offset = getOffset(unit);
