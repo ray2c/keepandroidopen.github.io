@@ -90,11 +90,11 @@
     var b = null;
     var bW = null;
     for (var key in available) {
-      var a;
-      var s;
+      var a = null;
+      var s = null;
       var prio = -1;
-      var l;
-      var script;
+      var l = null;
+      var script = null;
       for (var i = 0; i < dLen; i++) {
         var sep = matchLang(key, desired[i]);
         if (sep < 0) continue;
