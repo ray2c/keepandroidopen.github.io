@@ -66,79 +66,50 @@
   var params = getScriptParams();
 
   // ── Determine locale ──────────────────────────────────────────────────
-  function getBestLocale(desired, available) {
-    var dLen = 0;
-    if (!desired || !(dLen = desired.length) || !available) return null;
+  function resolveLocale(tags) {
+    var preferences = tags.map(tag => {
+      try { return new Intl.Locale(tag); } catch (e) {}
+    });
 
-    var d = new Array(dLen);
-    var dS = new Array(dLen);
-    var dC = new Array(dLen);
-
-    function matchLang(k, d) {
-      var kLen = k.length;
-      var dLen = d.length;
-      var kChr;
-      var dChr;
-      var kBal;
-      var dBal;
-      for (var i = 0; (kBal = i < kLen && (kChr = k[i]) !== '-') & (dBal = i < dLen && (dChr = d[i]) !== '-'); i++) {
-        if (kChr !== dChr && kChr.toLowerCase() !== dChr.toLowerCase()) return ~i;
-      }
-      return kBal || dBal ? ~i : i;
-    }
-
-    var b = null;
-    var bW = null;
-    for (var key in available) {
-      var a = null;
-      var s = null;
-      var prio = -1;
-      var l = null;
-      var script = null;
-      for (var i = 0; i < dLen; i++) {
-        var sep = matchLang(key, desired[i]);
-        if (sep < 0) continue;
-        if (!a) try {
-          a = new Intl.Locale(key);
-          s = a.script || a.maximize().script;
-        } catch (e) {}
-        l = d[i];
-        try {
-          script = l ? l.script || dS[i] : (l = d[i] = new Intl.Locale(desired[i])).script || (dS[i] ||= l.maximize().script);
-        } catch (e) {}
-        if (script === s) {
-          prio = i;
+    var best = null;
+    var bestWeight = null;
+    for (var k in messages) {
+      var key = new Intl.Locale(k);
+      var script = key.script || key.maximize().script;
+      var preferred = -1;
+      var preference = null;
+      for (var p = 0; p < preferences.length; p++) {
+        tag = preferences[p];
+        if (tag && key.language === tag.language && script === (tag.script || tag.maximize().script)) {
+          preferred = p;
+          preference = tag;
           break;
         }
       }
-      if (prio < 0) continue;
-      s = a.script;
-      var c = a.region;
-      var w = prio << 5 | (sep + (s ? s.length + 1 : 0) + (c ? c.length + 1 : 0) != key.length) << 4;
-      if ((s && l.script || c && l.region) && c === l.region) {
-        w |= !s | !c << 1 | !(s === l.script) << 2;
+      if (preferred < 0) continue;
+      var country = key.region;
+      var weight = preferred << 4;
+      if ((script && preference.script || country && preference.region) && country === preference.region) {
+        weight |= !script | !country << 1 | !(script === preference.script) << 2;
       } else {
-        w |= 8 | !!c << 2 | !!s << 1;
-        if (c) try {
-          w |= c !== (dC[prio] ||= new Intl.Locale(d[prio].language, { script: script }).maximize().region);
-        } catch (e) {}
+        weight |= 8 | !!country << 2 | !!script << 1 | (country && country !== new Intl.Locale(preference.language, { script: script }).maximize().region);
       }
-      if (bW === null || w < bW) {
-        b = key;
-        bW = w;
+      if (bestWeight === null || weight < bestWeight) {
+        best = key;
+        bestWeight = weight;
       }
     }
-    return b;
+    return best;
   }
 
   var locales = navigator.languages;
-  var preferred = params.lang ||
+  var prefer = params.lang ||
     document.documentElement.lang ||
     navigator.language ||
     navigator.userLanguage;
-  if (!locales || !locales.length || preferred !== locales[0]) locales = [...preferred.split(',').map(p => p.trim()), ...locales];
+  if (!locales || !locales.length || prefer !== locales[0]) locales = [...prefer.split(',').map(p => p.trim()), ...locales];
 
-  var locale = messages[locales[0]] ? locales[0] : getBestLocale(locales, messages) || 'en';
+  var locale = messages[locales[0]] ? locales[0] : resolveLocale(locales) || 'en';
 
   // ── Size variant ──────────────────────────────────────────────────────
   var size = params.size === "mini" ? "mini" : "normal";
